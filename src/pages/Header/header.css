@@ -5,6 +5,12 @@
 .logo-threesteps {
     display: flex;
     align-items: center;
+    border-radius: 12px;
+    padding: 10px;
+    background:
+        linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(to right, #60C8C9, #401F70) border-box;
+    border: 3px solid transparent;
 }
 
 .logo-threesteps img {
@@ -19,6 +25,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 10px;
 }
 
 .navbar ul {
@@ -33,6 +40,19 @@
     font-size: 18px;
     font-weight: 500;
     padding: 10px 15px;
+    background: linear-gradient(to right, #60C8C9, #401F70);
+    color: white;
+    border-radius: 25px;
+    transition: all 0.1s ease;
+}
+
+.navbar li a:hover {
+    border: 1px solid transparent;
+    background:
+        linear-gradient(white, white) padding-box,
+        linear-gradient(to right, #60C8C9, #401F70) border-box;
+        color: #401F70;
+
 }
 
 .contact {
@@ -40,4 +60,9 @@
     align-items: center;
     gap: 10px;
     font-size: 24px;
+    color: white;
+    background: linear-gradient(to right, #60C8C9, #401F70);
+    padding: 15px;
+    border-radius: 25px;
+    font-weight: 600;
 }
