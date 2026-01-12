@@ -4,7 +4,7 @@ const ExampleCarouselImage = ({ text }) => {
   return (
     <div
       style={{
-        height: '700px',
+        height: '600px',
         // backgroundColor: '#ddd',
         display: 'flex',
         justifyContent: 'center',

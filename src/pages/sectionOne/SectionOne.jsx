@@ -19,21 +19,21 @@ function IndividualIntervalsExample() {
 
   return (
     <div className='sectionOne'>
-      <Carousel key={carouselKey} style={{border:'1px solid black'}} className='carousel' >
+      <Carousel key={carouselKey} className='carousel' >
         <Carousel.Item interval={1000}>
-          <ExampleCarouselImage text="First slide" />
+          <ExampleCarouselImage />
           <Carousel.Caption className='caption'>
             <div className="title">
               <h3>Medbooking.az</h3>
               <p>Sizlərə pasient və tibb işçiləri arasında əlaqəni nizamlayan yeni bir yanaşma təqdim edirik</p>
             </div>
             <div className="img">
-              <img className='medbookingSlide' src={medbookingImg} style={{ width: '800px', height: '600px', objectFit: 'cover', borderRadius:'25px' }}></img>
+              <img className='medbookingSlide' src={medbookingImg} style={{ width: '600px', height: '400px', objectFit: 'cover', borderRadius:'25px' }}></img>
             </div>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={2000}>
-          <ExampleCarouselImage text="Second slide" />
+          <ExampleCarouselImage/>
           <Carousel.Caption className='caption'>
             <div className="title">
               <h3>Medbooking.az</h3>
@@ -45,7 +45,7 @@ function IndividualIntervalsExample() {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <ExampleCarouselImage text="Third slide" />
+          <ExampleCarouselImage />
         <Carousel.Caption className='caption'>
             <div className="title">
               <h3>Medbooking.az</h3>
