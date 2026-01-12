@@ -1,0 +1,21 @@
+.sectionTwo {
+    text-align: center;
+    padding: 30px;
+}
+.sectionTwo h1{
+    font-weight: 600;
+}
+
+.sectionTwo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sectionTwo-container .card{
+    width: 300px;
+    height: 400px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,21 @@
+.sectionThree {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.sectionThree h1{
+    font-weight: 600;
+}
+
+.sectionThree-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sectionThree-container .card{
+    width: 300px;
+    height: 400px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import ExampleCarouselImage from '../../components/ExampleCarouselImage';
 import medbookingImg from '../../images/sectionone/medbooking.jpg'
+import logo from '../../images/logo/logo_threestpes-one.png'
 import '../sectionOne/sectionone.css'
 
 
@@ -39,7 +40,7 @@ function IndividualIntervalsExample() {
               <p>Sizlərə pasient və tibb işçiləri arasında əlaqəni nizamlayan yeni bir yanaşma təqdim edirik</p>
             </div>
             <div className="img">
-              <img className='medbookingSlide' src={medbookingImg} style={{ width: '800px', height: '600px', objectFit: 'cover', borderRadius:'25px' }}></img>
+              <img className='medbookingSlide' src={logo} style={{ width: '800px', height: '600px', objectFit: 'cover', borderRadius:'25px' }}></img>
             </div>
           </Carousel.Caption>
         </Carousel.Item>

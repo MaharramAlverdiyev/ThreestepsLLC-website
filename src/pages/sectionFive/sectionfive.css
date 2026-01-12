@@ -1,0 +1,13 @@
+.sectionFive {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.sectionFive h1{
+    font-weight: 600;
+}
+
+.sectionFive-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
