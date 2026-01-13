@@ -14,18 +14,24 @@ const SectionFour = () => {
                 <div className="analyz">
                     <div className="analyz-card">
                         <div className="analyz-icon"><FaRegHandshake /></div>
-                        <h4>15</h4>
-                        <h5>İllik təcrübə</h5>
+                        <div className="analyz-title">
+                            <h4>15</h4>
+                            <h5>İllik təcrübə</h5>
+                        </div>
                     </div>
                     <div className="analyz-card">
                         <div className="analyz-icon"><FaPeopleGroup /></div>
-                        <h4>200</h4>
-                        <h5>Müştəri məmnuniyyəti</h5>
+                        <div className="analyz-title">
+                            <h4>200</h4>
+                            <h5>Müştəri məmnuniyyəti</h5>
+                        </div>
                     </div>
                     <div className="analyz-card">
                         <div className="analyz-icon"><LiaClipboardCheckSolid /></div>
-                        <h4>200</h4>
-                        <h5>Tamamlanmış layihə</h5>
+                        <div className="analyz-title">
+                            <h4>200</h4>
+                            <h5>Tamamlanmış layihə</h5>
+                        </div>
                     </div>
                 </div>
 

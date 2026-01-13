@@ -1,20 +1,47 @@
-import React from 'react'
-import '../sectionTwo/sectiontwo.css'
-import medbooking from '../../images/sectionone/medbooking.jpg';
+import React, { useEffect, useState } from 'react';
+import '../sectionTwo/sectiontwo.css';
+import axios from 'axios';
 
 const SectionTwo = () => {
+    const [partners, setPartners] = useState([]);
+
+    useEffect(() => {
+        axios.get('https://6966074bf6de16bde44be3ee.mockapi.io/partners')
+            .then(res => setPartners(res.data))
+            .catch(err => console.error(err));
+    }, []);
+
+    const sliderPartners = [...partners, ...partners];
+
+
+    const topRow = sliderPartners.filter((_, index) => index % 2 === 0);
+    const bottomRow = sliderPartners.filter((_, index) => index % 2 !== 0);
+
     return (
-        <div className='sectionTwo' >
-            <h1>Layihələrimiz</h1>
-            <div className="sectionTwo-container">
-                <div className="card">
-                    <img src={medbooking} alt="Medbooking" />
-                    <h6>Medbooking</h6>
-                    <p>Lorem impuls</p>
+        <div className="sectionTwo">
+            <h1>Tərəfdaşlarımız</h1>
+            <div className="slider">
+                <div className="slider-track">
+                    {topRow.map((partner, index) => (
+                        <div className="card" key={'top-' + index}>
+                            <img src={partner.image} alt={partner.name} />
+                            <h6>{partner.name}</h6>
+                            <p>{partner.desc}</p>
+                        </div>
+                    ))}
+                </div>
+                <div className="slider-track">
+                    {bottomRow.map((partner, index) => (
+                        <div className="card" key={'bottom-' + index}>
+                            <img src={partner.image} alt={partner.name} />
+                            <h6>{partner.name}</h6>
+                            <p>{partner.desc}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default SectionTwo
+export default SectionTwo;

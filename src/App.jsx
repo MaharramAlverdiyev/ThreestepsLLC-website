@@ -1,26 +1,52 @@
-import React from 'react'
-import Header from './pages/Header/Header'
-import SectionOne from './pages/sectionOne/sectionOne'
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './pages/Header/Header';
+import SectionOne from './pages/sectionOne/sectionOne';
 import SectionTwo from './pages/sectionTwo/SectionTwo';
 import SectionThree from './pages/sectionThree/SectionThree';
 import SectionFour from './pages/sectionFour/SectionFour';
 import SectionFive from './pages/sectionFive/SectionFive';
 import SectionSix from './pages/sectionSix/SectionSix';
+import AdminPage from './pages/AdminPage/Adminpage';
+
+import './App.css';
 
 
 const App = () => {
-  return (
-    <>
-      <Header />
-      <SectionOne />
-      <SectionThree/>
-      <SectionFour/>
-      <SectionTwo/>
-      <SectionFive/>
-      <SectionSix/>
-    </>
-  )
-}
+  const [partners, setPartners] = useState([]);
 
-export default App
+  const addPartner = (partner) => {
+    setPartners([...partners, partner]);
+  };
+
+  return (
+    <Router>
+      <Routes>
+        <Route
+          path="/admin"
+          element={
+            <AdminPage
+              addPartner={addPartner}
+              partners={partners}
+              setPartners={setPartners}
+            />
+          }
+        />
+        <Route path="/" element={
+          <>
+            <Header />
+            <SectionOne />
+            <SectionThree />
+            <SectionFour />
+            <SectionTwo partners={partners} />
+            <SectionFive />
+            <SectionSix />
+          </>
+        } />
+      </Routes>
+
+    </Router>
+  );
+};
+
+export default App;

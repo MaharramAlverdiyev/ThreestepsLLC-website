@@ -6,6 +6,8 @@
 
 .header-up{
     width: 87%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .logo-threesteps {
@@ -40,7 +42,9 @@
     text-decoration: none;
     list-style-type: none;
     margin-bottom: 0;
+    flex-wrap: wrap;
 }
+
 
 
 .navbar li a {
@@ -70,6 +74,6 @@
     color: white;
     background: linear-gradient(to right, #60C8C9, #401F70);
     padding: 15px;
-    border-radius: 25px;
+    border-radius: 10px;
     font-weight: 600;
 }
