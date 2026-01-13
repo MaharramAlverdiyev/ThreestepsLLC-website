@@ -19,8 +19,8 @@
 }
 
 .sectionThree-container .card {
-    width: 450px;
-    height: 350px;
+    width: 370px;
+    height: 280px;
     background:
         linear-gradient(#fff, #fff) padding-box,
         linear-gradient(to right, #60C8C9, #401F70) border-box;
@@ -49,7 +49,7 @@
     font-size: 20px;
 }
 
-.titlesectionThree{
+.titlesectionThree {
     display: flex;
     flex-direction: column;
     align-items: center;
