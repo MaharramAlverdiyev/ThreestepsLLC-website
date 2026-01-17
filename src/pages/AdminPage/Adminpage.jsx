@@ -1,112 +1,199 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const AdminPage = ({ addPartner, partners, setPartners }) => {
-    const [name, setName] = useState('');
-    const [desc, setDesc] = useState('');
-    const [file, setFile] = useState(null);
+const AdminPage = () => {
+    const [apiType, setApiType] = useState("partners"); // partners / alicilar
+    const [name, setName] = useState("");
+    const [desc, setDesc] = useState(""); // partners üçün
+    const [avatarFile, setAvatarFile] = useState(null);
+    const [logoFile, setLogoFile] = useState(null); // alicilar üçün
     const [loading, setLoading] = useState(false);
-    const [editId, setEditId] = useState(null); 
+    const [editId, setEditId] = useState(null);
+    const [items, setItems] = useState([]);
+
+    const apiUrls = {
+        partners: "https://6966074bf6de16bde44be3ee.mockapi.io/partners",
+        alicilar: "https://6966074bf6de16bde44be3ee.mockapi.io/alicilar",
+    };
+
+    // Faylı Base64 formatına çevirir
+    const fileToBase64 = (file) =>
+        new Promise((resolve, reject) => {
+            if (!file) return resolve("");
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = (err) => reject(err);
+        });
 
     useEffect(() => {
-        axios.get('https://6966074bf6de16bde44be3ee.mockapi.io/partners')
-            .then(res => setPartners(res.data))
-            .catch(err => console.error(err));
-    }, [setPartners]);
+        fetchItems();
+    }, [apiType]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!file && !editId) return alert('Şəkil seçin');
-
-        const reader = new FileReader();
-        reader.onload = async () => {
-            const image = reader.result;
-            const partnerData = { name, desc, image };
-
-            try {
-                setLoading(true);
-                let res;
-                if (editId) {
-                    res = await axios.put(`https://6966074bf6de16bde44be3ee.mockapi.io/partners/${editId}`, partnerData);
-                    setPartners(partners.map(p => p.id === editId ? res.data : p));
-                    alert('Partner yeniləndi!');
-                } else {
-                    res = await axios.post('https://6966074bf6de16bde44be3ee.mockapi.io/partners', partnerData);
-                    setPartners([...partners, res.data]);
-                    alert('Yeni partner əlavə olundu!');
-                }
-
-            } catch (err) {
-                console.error('API xətası:', err);
-                alert('API əməliyyatı uğursuz oldu!');
-            } finally {
-                setLoading(false);
-            }
-
-            setName('');
-            setDesc('');
-            setFile(null);
-            setEditId(null);
-        };
-
-        if (file) {
-            reader.readAsDataURL(file);
-        } else {
-            handleEditWithoutFile();
-        }
-    };
-
-    const handleEditWithoutFile = async () => {
+    const fetchItems = async () => {
         try {
-            setLoading(true);
-            const partnerData = { name, desc };
-            const res = await axios.put(`https://6966074bf6de16bde44be3ee.mockapi.io/partners/${editId}`, partnerData);
-            setPartners(partners.map(p => p.id === editId ? res.data : p));
-            alert('Partner yeniləndi!');
+            const res = await axios.get(apiUrls[apiType]);
+            setItems(res.data);
         } catch (err) {
             console.error(err);
-            alert('API update xətası');
-        } finally {
-            setLoading(false);
-            setName('');
-            setDesc('');
-            setEditId(null);
+            alert("Məlumat yüklənmədi!");
         }
     };
 
-    const handleEditClick = (partner) => {
-        setEditId(partner.id);
-        setName(partner.name);
-        setDesc(partner.desc);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (!name) return alert("Adı daxil edin");
+        if (apiType === "partners" && !desc) return alert("Təsviri daxil edin");
+
+        try {
+            setLoading(true);
+
+            // Faylları Base64-ə çeviririk
+            const avatarBase64 = await fileToBase64(avatarFile);
+            const logoBase64 = await fileToBase64(logoFile);
+
+            let data = {};
+            if (apiType === "partners") {
+                data = { name, desc, avatar: avatarBase64 };
+            } else {
+                data = { name, avatar: avatarBase64, logo: logoBase64 };
+            }
+
+            let res;
+            if (editId) {
+                res = await axios.put(`${apiUrls[apiType]}/${editId}`, data);
+                setItems(items.map((i) => (i.id === editId ? res.data : i)));
+                alert("Məlumat yeniləndi!");
+            } else {
+                res = await axios.post(apiUrls[apiType], data);
+                setItems([...items, res.data]);
+                alert("Yeni məlumat əlavə olundu!");
+            }
+
+            // Formu sıfırla
+            setName("");
+            setDesc("");
+            setAvatarFile(null);
+            setLogoFile(null);
+            setEditId(null);
+        } catch (err) {
+            console.error(err);
+            alert("API əməliyyatı uğursuz oldu!");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleEditClick = (item) => {
+        setEditId(item.id);
+        setName(item.name);
+        if (apiType === "partners") {
+            setDesc(item.desc || "");
+            setAvatarFile(null);
+        } else {
+            setAvatarFile(null);
+            setLogoFile(null);
+        }
     };
 
     return (
-        <div style={{ padding: '20px' }}>
+        <div style={{ padding: "20px" }}>
             <h2>Admin Page</h2>
+
+            <div style={{ marginBottom: "20px" }}>
+                <label>
+                    <input
+                        type="radio"
+                        name="apiType"
+                        value="partners"
+                        checked={apiType === "partners"}
+                        onChange={() => setApiType("partners")}
+                    />
+                    Partners
+                </label>
+                <label style={{ marginLeft: "20px" }}>
+                    <input
+                        type="radio"
+                        name="apiType"
+                        value="alicilar"
+                        checked={apiType === "alicilar"}
+                        onChange={() => setApiType("alicilar")}
+                    />
+                    Alicilar
+                </label>
+            </div>
+
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="Partner adı"
+                    placeholder="Ad"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
-                /><br /><br />
+                />
+                <br />
+                <br />
+                {apiType === "partners" && (
+                    <>
+                        <input
+                            type="text"
+                            placeholder="Təsvir"
+                            value={desc}
+                            onChange={(e) => setDesc(e.target.value)}
+                            required
+                        />
+                        <br />
+                        <br />
+                    </>
+                )}
                 <input
                     type="file"
                     accept="image/*"
-                    onChange={(e) => setFile(e.target.files[0])}
-                /><br /><br />
+                    onChange={(e) => setAvatarFile(e.target.files[0])}
+                />
+                <label style={{ marginLeft: "10px" }}>Avatar faylı</label>
+                <br />
+                <br />
+                {apiType === "alicilar" && (
+                    <>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => setLogoFile(e.target.files[0])}
+                        />
+                        <label style={{ marginLeft: "10px" }}>Logo faylı</label>
+                        <br />
+                        <br />
+                    </>
+                )}
                 <button type="submit" disabled={loading}>
-                    {loading ? 'Əlavə olunur...' : editId ? 'Yenilə' : 'Əlavə et'}
+                    {loading ? "Əlavə olunur..." : editId ? "Yenilə" : "Əlavə et"}
                 </button>
             </form>
-
-            <h3>Mövcud Partnerlər</h3>
+            <h3>Mövcud Məlumatlar</h3>
             <ul>
-                {partners.map(p => (
-                    <li key={p.id} style={{ marginBottom: '10px' }}>
-                        <strong>{p.name}</strong> - {p.desc}
-                        <button style={{ marginLeft: '10px' }} onClick={() => handleEditClick(p)}>Redaktə et</button>
+                {items.map((i) => (
+                    <li key={i.id} style={{ marginBottom: "15px" }}>
+                        <strong>{i.company}</strong>
+                        {apiType === "partners" && i.desc && <> - {i.desc}</>}
+                        <br />
+                        {i.avatar && (
+                            <img
+                                src={i.avatar}
+                                alt="avatar"
+                                style={{ width: "50px", marginRight: "10px" }}
+                            />
+                        )}
+                        {apiType === "alicilar" && i.logo && (
+                            <img
+                                src={i.logo}
+                                alt="logo"
+                                style={{ width: "50px", marginRight: "10px" }}
+                            />
+                        )}
+                        <br />
+                        <button onClick={() => handleEditClick(i)}>Redaktə et</button>
                     </li>
                 ))}
             </ul>

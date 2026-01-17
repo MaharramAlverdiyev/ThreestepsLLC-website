@@ -1,75 +1,65 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./sectionfive.css";
-import { GrLike } from "react-icons/gr";
-import { IoMdStarOutline } from "react-icons/io";
 
 const SectionFive = () => {
+  const [cardsData, setCardsData] = useState([]);
+  const [center, setCenter] = useState(0);
 
-    const cards = [
-        { id: 1, title: "Card 1" },
-        { id: 2, title: "Card 2" },
-        { id: 3, title: "Card 3" },
-        { id: 4, title: "Card 4" },
-        { id: 5, title: "Card 5" },
-    ];
+  useEffect(() => {
+    fetch("https://6966074bf6de16bde44be3ee.mockapi.io/alicilar")
+      .then((res) => res.json())
+      .then((data) => setCardsData(data))
+      .catch((err) => console.log(err));
+  }, []);
 
-    const [center, setCenter] = useState(0);
+  const getCard = (offset) => {
+    if (cardsData.length === 0) return {};
+    return cardsData[(center + offset + cardsData.length) % cardsData.length];
+  };
 
-    const getCard = (offset) => {
-        return cards[(center + offset + cards.length) % cards.length];
-    };
+  if (cardsData.length === 0) return <p>Yüklənir...</p>;
 
-    return (
-        <div className="sectionFive">
+  return (
+    <div className="sectionFive">
+      <h1>Müştəri rəyi</h1>
+      <p>Hər bir müştəri bizim üçün dəyərlidir.</p>
 
-            <div className="icon-five">
-                <div className="five-icon"><GrLike /></div>
-                <div className="star-icon">
-                    <IoMdStarOutline />
-                    <IoMdStarOutline />
-                    <IoMdStarOutline />
-                </div>
-            </div>
-
-            <h1>Müştəri rəyi</h1>
-            <p>Hər bir müştəri bizim üçün dəyərlidir.</p>
-
-            <div className="sectionFive-container">
-
-                <div className="cards-wrapper">
-                    <div
-                        className="card-item side-card"
-                        onClick={() => setCenter((center - 1 + cards.length) % cards.length)}
-                    >
-                        {getCard(-1).title}
-                    </div>
-
-                    <div className="card-item center-card">
-                        {getCard(0).title}
-                    </div>
-
-                    <div
-                        className="card-item side-card"
-                        onClick={() => setCenter((center + 1) % cards.length)}
-                    >
-                        {getCard(1).title}
-                    </div>
-
-                </div>
-
-                <div className="dots">
-                    {cards.map((_, i) => (
-                        <span
-                            key={i}
-                            onClick={() => setCenter(i)}
-                            className={i === center ? "dot active" : "dot"}
-                        />
-                    ))}
-                </div>
-
-            </div>
+      <div className="cards-wrapper">
+        <div
+          className="card side-card"
+          onClick={() =>
+            setCenter((center - 1 + cardsData.length) % cardsData.length)
+          }
+        >
+          <h4>{getCard(-1).company}</h4>
+          <p>{getCard(-1).name}</p>
         </div>
-    );
+
+        <div className="card center-card">
+          <h4>{getCard(0).company}</h4>
+          <p>{getCard(0).name}</p>
+        </div>
+
+        <div
+          className="card side-card"
+          onClick={() => setCenter((center + 1) % cardsData.length)}
+        >
+          <h4>{getCard(1).company}</h4>
+          <p>{getCard(1).name}</p>
+        </div>
+      </div>
+
+      <div className="dots">
+        {cardsData.map((_, i) => (
+          <span
+            key={i}
+            className={i === center ? "dot active" : "dot"}
+            onClick={() => setCenter(i)}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default SectionFive;

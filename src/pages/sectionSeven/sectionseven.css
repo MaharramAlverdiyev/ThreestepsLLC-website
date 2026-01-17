@@ -1,0 +1,49 @@
+.sectionSeven {
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sectionSeven-container {
+    width: 67%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    align-items: center;
+}
+
+.sectionSeven-container img {
+    width: 400px;
+    border-radius: 20px;
+     background:
+        linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(to right, #60C8C9, #401F70) border-box;
+    border: 3px solid transparent;
+    padding: 10px; 
+}
+
+.right-text{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    gap: 30px;
+}
+
+.threesteps{
+    text-align: center;
+}
+
+.threesteps h2{
+    font-weight: 700;
+} 
+
+.text-second h3  , .text-one h3{
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    align-items: center;
+    font-weight: 600;
+}

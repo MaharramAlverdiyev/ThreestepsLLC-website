@@ -10,6 +10,7 @@ import SectionSix from './pages/sectionSix/SectionSix';
 import AdminPage from './pages/AdminPage/Adminpage';
 
 import './App.css';
+import SectionSeven from './pages/sectionSeven/SectionSeven';
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
           <>
             <Header />
             <SectionOne />
+            <SectionSeven/>
             <SectionThree />
             <SectionFour />
             <SectionTwo partners={partners} />
