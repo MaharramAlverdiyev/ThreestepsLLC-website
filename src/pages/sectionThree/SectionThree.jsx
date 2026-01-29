@@ -22,32 +22,32 @@ const SectionThree = () => {
                 </div><div className="card">
                     <div className="icon"><RiFileCloudLine /></div>
                     <div className="titlesectionThree">
-                        <h6>It konsaltinq</h6>
-                        <p>IT konsultasiya xidməti göstərməklə məlumatlarınızın təhlükəsizliyini təmin edirik.</p>
+                         <h6>Bulud Texnologiyaları</h6>
+                        <p>IT xidmət təminatçınız olaraq sizə bazarda mövcud olan ən uyğun bulud həllərini təqdim edəcəyik.</p>
                     </div>
                 </div><div className="card">
                     <div className="icon"><MdOutlineSecurity /></div>
                     <div className="titlesectionThree">
-                        <h6>It konsaltinq</h6>
-                        <p>IT konsultasiya xidməti göstərməklə məlumatlarınızın təhlükəsizliyini təmin edirik.</p>
+                        <h6>Kibertəhlükəsizlik Xidməti</h6>
+                        <p>Kibertəhlükəsizlik sahəsində düzgün həllərin tətbiqi biznesin təhlükəsizliyini təmin etməyin yeganə yoludur</p>
                     </div>
                 </div><div className="card">
                     <div className="icon"><GrServices /></div>
                     <div className="titlesectionThree">
-                        <h6>It konsaltinq</h6>
-                        <p>IT konsultasiya xidməti göstərməklə məlumatlarınızın təhlükəsizliyini təmin edirik.</p>
+                        <h6>Texniki Dəstək Xidməti</h6>
+                        <p>Mütəxəssis komandamız sistemlərinizə daimi nəzarət və professional idarəetməni təmin etmək üçün burdadadır.</p>
                     </div>
                 </div><div className="card">
                     <div className="icon"><HiMiniDevicePhoneMobile /></div>
                     <div className="titlesectionThree">
-                        <h6>It konsaltinq</h6>
-                        <p>IT konsultasiya xidməti göstərməklə məlumatlarınızın təhlükəsizliyini təmin edirik.</p>
+                        <h6>Responsive Görünüş</h6>
+                        <p>Telefonda və planşetdə istifadə edə bilmə rahatçılığı </p>
                     </div>
                 </div><div className="card">
                     <div className="icon"><PiNetworkLight /></div>
                     <div className="titlesectionThree">
-                        <h6>It konsaltinq</h6>
-                        <p>IT konsultasiya xidməti göstərməklə məlumatlarınızın təhlükəsizliyini təmin edirik.</p>
+                        <h6>Network Managment</h6>
+                        <p>Şəbəkənizin miqyasından asılı olmayaraq, onun optimal saxlanmasını və stabil işləməsini təmin etməlisiniz.</p>
                     </div>
                 </div>
             </div>
