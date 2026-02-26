@@ -4,13 +4,13 @@ const ExampleCarouselImage = ({ text }) => {
   return (
     <div
       style={{
-        height: '600px',
+        height: '700px',
         // backgroundColor: '#ddd',
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'center',
+        // alignItems: 'center',
         fontSize: '2rem',
-        padding:'10px'
+        // padding:'10px'
       }}
     >
       {text}

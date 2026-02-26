@@ -33,6 +33,7 @@ const SectionFive = () => {
         >
           <h4>{getCard(-1).company}</h4>
           <p>{getCard(-1).name}</p>
+          <img src={getCard(-1).logo} alt="" />
         </div>
 
         <div className="card center-card">

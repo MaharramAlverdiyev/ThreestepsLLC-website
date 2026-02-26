@@ -25,3 +25,9 @@
     color: black;
 }
 
+.caption .img img{
+    object-fit: contain !important;
+    height: 0px;
+    border-radius: 25px;
+}
+
