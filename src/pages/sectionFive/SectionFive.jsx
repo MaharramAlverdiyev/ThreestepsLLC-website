@@ -12,9 +12,12 @@ const SectionFive = () => {
       .catch((err) => console.log(err));
   }, []);
 
+
   const getCard = (offset) => {
-    if (cardsData.length === 0) return {};
-    return cardsData[(center + offset + cardsData.length) % cardsData.length];
+    if (cardsData.length === 0) return null;
+    return cardsData[
+      (center + offset + cardsData.length) % cardsData.length
+    ];
   };
 
   if (cardsData.length === 0) return <p>Yüklənir...</p>;
@@ -31,25 +34,38 @@ const SectionFive = () => {
             setCenter((center - 1 + cardsData.length) % cardsData.length)
           }
         >
-          <h4>{getCard(-1).company}</h4>
-          <p>{getCard(-1).name}</p>
-          <img src={getCard(-1).logo} alt="" />
+          <img
+            src={getCard(-1)?.avatars}
+            alt=""
+            className="avatar"
+          />
+          <h4>{getCard(-1)?.company}</h4>
+          <p>{getCard(-1)?.name}</p>
         </div>
-
         <div className="card center-card">
-          <h4>{getCard(0).company}</h4>
-          <p>{getCard(0).name}</p>
+          <img
+            src={getCard(0)?.avatars}
+            alt=""
+            className="avatar"
+          />
+          <h4>{getCard(0)?.company}</h4>
+          <p>{getCard(0)?.name}</p>
         </div>
-
         <div
           className="card side-card"
-          onClick={() => setCenter((center + 1) % cardsData.length)}
+          onClick={() =>
+            setCenter((center + 1) % cardsData.length)
+          }
         >
-          <h4>{getCard(1).company}</h4>
-          <p>{getCard(1).name}</p>
+          <img
+            src={getCard(1)?.avatars}
+            alt=""
+            className="avatar"
+          />
+          <h4>{getCard(1)?.company}</h4>
+          <p>{getCard(1)?.name}</p>
         </div>
       </div>
-
       <div className="dots">
         {cardsData.map((_, i) => (
           <span

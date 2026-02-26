@@ -18,7 +18,7 @@
     gap: 30px;
 }
 
-.sectionThree-container .card {
+.sectionThree-container .card-three {
     width: 450px;
     height: 347px;
     background:
@@ -29,14 +29,15 @@
     justify-content: space-evenly;
     align-items: center;
     cursor: pointer;
+    flex-direction: column;
 }
 
-.sectionThree-container .card P {
+.sectionThree-container .card-three P {
     text-align: center;
     font-size: 14px;
 }
 
-.sectionThree-container .card .icon {
+.sectionThree-container .card-three .icon {
     font-size: 60px;
     border-radius: 25px;
     background: linear-gradient(to right, #60C8C9, #401F70);
@@ -45,7 +46,7 @@
     display: flex;
 }
 
-.sectionThree-container .card h6 {
+.sectionThree-container .card-three h6 {
     font-size: 20px;
 }
 

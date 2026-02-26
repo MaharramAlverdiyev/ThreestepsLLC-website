@@ -34,7 +34,7 @@ const Header = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="contact"><IoCallOutline /> +994 55 527 53 56</div>
+                <div className="contact"><IoCallOutline /> +994 50 471 34 71</div>
             </div>
         </div>
     )

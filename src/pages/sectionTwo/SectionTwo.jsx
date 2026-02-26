@@ -23,7 +23,7 @@ const SectionTwo = () => {
             <div className="slider">
                 <div className="slider-track">
                     {topRow.map((partner, index) => (
-                        <div className="card" key={'top-' + index}>
+                        <div className="cardd" key={'top-' + index}>
                             <img src={partner.image} alt={partner.name} />
                             <h6>{partner.name}</h6>
                             <p>{partner.desc}</p>
@@ -32,7 +32,7 @@ const SectionTwo = () => {
                 </div>
                 <div className="slider-track">
                     {bottomRow.map((partner, index) => (
-                        <div className="card" key={'bottom-' + index}>
+                        <div className="cardd" key={'bottom-' + index}>
                             <img src={partner.image} alt={partner.name} />
                             <h6>{partner.name}</h6>
                             <p>{partner.desc}</p>
