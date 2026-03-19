@@ -30,6 +30,13 @@
     align-items: center;
     cursor: pointer;
     flex-direction: column;
+    border-radius: 25px;
+    box-shadow: 0 20px 10px 10px rgba(64, 31, 112, 0.25);
+    transition: all 0.4s ease;
+}
+
+.sectionThree-container .card-three:hover {
+    transform: translateY(-10px);
 }
 
 .sectionThree-container .card-three P {

@@ -2,9 +2,12 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
+    background-color: white;
+    box-shadow: 0 20px 50px rgba(64, 31, 112, 0.25);
+
 }
 
-.header-up{
+.header-up {
     width: 87%;
     display: flex;
     flex-wrap: wrap;
@@ -43,28 +46,21 @@
     list-style-type: none;
     margin-bottom: 0;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
-
-
 
 .navbar li a {
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 600;
     padding: 10px 15px;
-    background: linear-gradient(to right, #60C8C9, #401F70);
-    color: white;
     border-radius: 25px;
-    border: 1px solid transparent;
+    color: black
 }
 
 .navbar li a:hover {
-    border: 1px solid transparent;
-    background:
-        linear-gradient(white, white) padding-box,
-        linear-gradient(to right, #60C8C9, #401F70) border-box;
+    
     color: #401F70;
-
 }
 
 .contact {
