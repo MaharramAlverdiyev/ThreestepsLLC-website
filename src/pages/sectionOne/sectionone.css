@@ -36,3 +36,10 @@
     box-shadow: 0 20px 50px rgba(64, 31, 112, 0.25);
 }
 
+
+@media  (max-width: 600px) {
+    .caption {
+        flex-wrap: wrap;
+    }
+}
+    

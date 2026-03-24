@@ -18,32 +18,62 @@
 .sectionSeven-container img {
     width: 400px;
     border-radius: 20px;
-     background:
+    background:
         linear-gradient(#fff, #fff) padding-box,
         linear-gradient(to right, #60C8C9, #401F70) border-box;
     border: 3px solid transparent;
-    padding: 10px; 
+    padding: 10px;
 }
 
-.right-text{
+.right-text {
     display: flex;
     flex-direction: column;
     width: 45%;
     gap: 30px;
 }
 
-.threesteps{
+.threesteps {
     text-align: center;
 }
 
-.threesteps h2{
+.threesteps h2 {
     font-weight: 700;
-} 
+}
 
-.text-second h3  , .text-one h3{
+.text-second h3,
+.text-one h3 {
     display: flex;
     gap: 15px;
     margin-bottom: 10px;
     align-items: center;
     font-weight: 600;
+}
+
+
+
+@media (max-width: 600px) {
+    .sectionSeven-container {
+        flex-wrap: wrap;
+        width: 100%;
+
+    }
+
+    .sectionSeven-container img {
+        width: 300px;
+    }
+
+    .text-second p,
+    .text-one p,
+    .threesteps p {
+        font-size: 24px;
+    }
+
+    .text-second h3,
+    .text-one h3,
+    .threesteps h2 {
+        font-size: 32px;
+    }
+    .right-text{
+        width: 100%;
+    }
 }
