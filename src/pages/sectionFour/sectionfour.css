@@ -68,5 +68,6 @@
 @media  (max-width: 600px) {
     .analyz {
         flex-wrap: wrap;
+        text-align: center;
     }
 }

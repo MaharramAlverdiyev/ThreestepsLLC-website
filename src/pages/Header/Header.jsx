@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Header/header.css';
 import logoOne from '../../images/logo/logo_threestpes-one.png'
 import logoTwo from '../../images/logo/logo_threestpes-two.png'
@@ -12,9 +12,23 @@ const Header = () => {
     const toggleMenu = () => {
         setOpen(!open);
     };
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
-        <div className='header'>
+        <div className={`header ${scrolled ? "scrolled" : ""}`}>
             <div className="header-up">
 
                 <div className="logo">

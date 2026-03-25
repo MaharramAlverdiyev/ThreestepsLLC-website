@@ -26,7 +26,7 @@
 .slider-track {
     display: flex;
     gap: 20px;
-    animation: slide 30s linear infinite;
+    animation: slide 20s linear infinite;
 }
 
 .slider-track .cardd {
@@ -60,4 +60,27 @@
     }
 
 
+}
+
+
+
+@media (max-width: 992px) {
+     .slider-track {
+         animation: slide 10s linear infinite;
+     }
+     .slider{
+        width: 100%;
+     }
+
+     @keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-300%);
+    }
+
+
+}
 }

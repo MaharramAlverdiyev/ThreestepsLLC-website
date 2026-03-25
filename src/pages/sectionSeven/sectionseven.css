@@ -52,26 +52,20 @@
 
 
 @media (max-width: 600px) {
+
     .sectionSeven-container {
         flex-wrap: wrap;
         width: 100%;
-
     }
 
     .sectionSeven-container img {
         width: 300px;
     }
 
-    .text-second p,
-    .text-one p,
-    .threesteps p {
-        font-size: 24px;
-    }
-
     .text-second h3,
     .text-one h3,
     .threesteps h2 {
-        font-size: 32px;
+        margin-top: 20px;
     }
     .right-text{
         width: 100%;

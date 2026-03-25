@@ -1,34 +1,36 @@
-.sectionSix{
+.sectionSix {
     width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.sectionSix h1{
+.sectionSix h1 {
     padding-bottom: 30px;
     padding-top: 30px;
 }
-.sectionSix-container{
+
+.sectionSix-container {
     width: 80%;
     display: flex;
     justify-content: center;
     padding: 30px;
 }
-.questions{
+
+.questions {
     display: flex;
     width: 80%;
-
 }
 
-.questions-left, .questions-right{
+.questions-left,
+.questions-right {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    
+
 }
 
-.questions-text{
+.questions-text {
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -38,12 +40,12 @@
     padding-bottom: 15px;
 }
 
-.questions-text h6{
-   font-weight: 700;
-}  
+.questions-text h6 {
+    font-weight: 700;
+}
 
 .questions-text::before,
-.questions-text::after{
+.questions-text::after {
     content: "";
     position: absolute;
     bottom: -3px;
@@ -53,10 +55,20 @@
     border-radius: 50%;
 }
 
-.questions-text::before{
+.questions-text::before {
     left: 0;
 }
 
-.questions-text::after{
+.questions-text::after {
     right: 0;
+}
+
+@media (max-width: 992px) {
+    .questions {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    .questions-text{
+    width: 100%;
+    }
 }
