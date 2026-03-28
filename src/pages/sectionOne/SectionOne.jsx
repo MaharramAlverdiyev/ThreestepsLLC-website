@@ -21,7 +21,7 @@ function IndividualIntervalsExample() {
   return (
     <div className='sectionOne'>
       <Carousel key={carouselKey} className='carousel' >
-        <Carousel.Item interval={200000000}>
+        <Carousel.Item interval={2000}>
           <ExampleCarouselImage />
           <Carousel.Caption className='caption'>
             <div className="title">
@@ -33,7 +33,7 @@ function IndividualIntervalsExample() {
             </div>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item interval={2000000000 }>
+        <Carousel.Item interval={2000}>
           <ExampleCarouselImage />
           <Carousel.Caption className='caption'>
             <div className="title">
@@ -47,7 +47,7 @@ function IndividualIntervalsExample() {
             </div>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item>
+        <Carousel.Item interval={2000}>
           <ExampleCarouselImage />
           <Carousel.Caption className='caption'>
             <div className="title">

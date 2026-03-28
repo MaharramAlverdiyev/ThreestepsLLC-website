@@ -4,7 +4,7 @@ const ExampleCarouselImage = ({ text }) => {
   return (
     <div
       style={{
-        height: '800px',
+        height: '720px',
         display: 'flex',
         width:'100%',
         justifyContent: 'space-between',
