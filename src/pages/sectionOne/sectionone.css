@@ -3,6 +3,7 @@
     justify-content: space-around;
     align-items: center;
     gap: 30px;
+    justify-content: space-between;
 }
 
 .title {
@@ -37,11 +38,11 @@
 }
 
 
-/* Mobil üçün - 992px altı */
+
+
 @media (max-width: 992px) {
     .caption {
         flex-direction: column;
-        /* Yan-yana yox, üst-üstə */
         align-items: center;
         text-align: center;
         gap: 20px;
@@ -58,12 +59,26 @@
 
     .title p {
         font-size: 16px;
+        width: 350px !important;
     }
 
     .caption .img img {
-        width: 90%;
-        /* Daha kiçik ölçü */
-        height: auto;
+        width: 90% !important;
+        height: 90% !important;
+
+    }
+
+    .carousel-caption {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        right: 0 !important;
+        left: 0 !important;
+    }
+
+    .imgg img {
+        width: 70% !important;
+        height: 50% !important  ;
     }
 }
 

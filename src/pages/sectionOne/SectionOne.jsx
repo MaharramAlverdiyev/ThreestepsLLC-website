@@ -21,7 +21,7 @@ function IndividualIntervalsExample() {
   return (
     <div className='sectionOne'>
       <Carousel key={carouselKey} className='carousel' >
-        <Carousel.Item interval={1000}>
+        <Carousel.Item interval={200000000}>
           <ExampleCarouselImage />
           <Carousel.Caption className='caption'>
             <div className="title">
@@ -33,7 +33,7 @@ function IndividualIntervalsExample() {
             </div>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item interval={2000}>
+        <Carousel.Item interval={2000000000 }>
           <ExampleCarouselImage />
           <Carousel.Caption className='caption'>
             <div className="title">
@@ -54,7 +54,7 @@ function IndividualIntervalsExample() {
               <h3>Medbooking.az</h3>
               <p>Sizlərə pasiyentlər və tibb işçiləri arasında əlaqəni daha sürətli, rahat və effektiv şəkildə nizamlayan yeni bir yanaşma təqdim edirik. Medbooking.az platforması vasitəsilə istifadəçilər həkim seçimi, onlayn qeydiyyat və tibbi xidmətlərə asan çıxış imkanı əldə edirlər. Sistem həm pasiyentlər, həm də tibb müəssisələri üçün operativ və təhlükəsiz idarəetmə mühiti yaradır.</p>
             </div>
-            <div className="img">
+            <div className="imgg">
               <img className='medbookingSlide' src={medbooking} style={{ width: '800px', height: '600px', objectFit: 'cover', borderRadius: '25px' }}></img>
             </div>
           </Carousel.Caption>
